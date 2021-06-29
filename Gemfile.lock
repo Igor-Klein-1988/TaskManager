@@ -80,6 +80,8 @@ GEM
     childprocess (3.0.0)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
+    enumerize (2.4.0)
+      activesupport (>= 3.2)
     erubi (1.10.0)
     factory_bot (6.2.0)
       activesupport (>= 5.0.0)
@@ -237,6 +239,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
+  enumerize
   factory_bot_rails
   jbuilder (~> 2.7)
   listen (~> 3.3)
