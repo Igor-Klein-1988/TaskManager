@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :task do
-    name { 'MyString' }
-    description { 'MyText' }
+    name { generate :string }
+    description { generate :string }
     association :author, factory: :manager
     association :assignee, factory: :developer
     state { 'in_development' }
