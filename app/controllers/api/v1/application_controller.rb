@@ -14,7 +14,7 @@ class Api::V1::ApplicationController < Api::ApplicationController
   end
 
   def ransack_params
-    params.to_unsafe_h.fetch(:q).merge(s: RANSACK_DEFAULT_SORT)
+    params[:q]
   end
 
   def page

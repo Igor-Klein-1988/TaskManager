@@ -8,6 +8,8 @@ import CardContent from '@material-ui/core/CardContent';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 
+import TaskPresenter from 'presenters/TaskPresenter';
+
 import useStyles from './useStyles';
 
 const Task = ({ task, onClick }) => {
@@ -34,7 +36,7 @@ const Task = ({ task, onClick }) => {
 };
 
 Task.propTypes = {
-  task: PropTypes.shape().isRequired,
+  task: TaskPresenter.shape().isRequired,
   onClick: PropTypes.func.isRequired,
 };
 
