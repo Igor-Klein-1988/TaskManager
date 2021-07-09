@@ -60,7 +60,7 @@ const TaskBoard = () => {
     loadColumn(state, page, perPage).then(({ data }) => {
       setBoardCards((prevState) => ({
         ...prevState,
-        [state]: { cards: data.items, meta: data.meta },
+        [state]: { cards: data.tasks, meta: data.meta },
       }));
     });
   };
@@ -90,7 +90,7 @@ const TaskBoard = () => {
       setBoardCards((prevState) => ({
         ...prevState,
         [state]: {
-          cards: [...prevState[state].cards, ...data.items],
+          cards: [...prevState[state].cards, ...data.tasks],
           meta: data.meta,
         },
       }));
@@ -165,7 +165,7 @@ const TaskBoard = () => {
       <Fab onClick={handleOpenAddPopup} className={styles.addButton} color="primary" aria-label="add">
         <AddIcon />
       </Fab>
-      {mode === MODES.ADD && <AddPopup onCreateCard={handleTaskCreate} onClose={handleClose} />}
+      {mode === MODES.ADD && <AddPopup onCreateCard={handleTaskCreate} onClose={handleClose} mode={mode} />}
       {mode === MODES.EDIT && (
         <EditPopup
           onLoadCard={loadTask}
@@ -173,6 +173,7 @@ const TaskBoard = () => {
           onCardUpdate={handleTaskUpdate}
           onClose={handleClose}
           cardId={openedTaskId}
+          mode={mode}
         />
       )}
     </>
