@@ -6,7 +6,7 @@ import TextField from '@material-ui/core/TextField';
 
 import TaskPresenter from 'presenters/TaskPresenter';
 
-import UserSelect from 'packs/components/UserSelect';
+import UserSelect from 'components/UserSelect';
 
 import useStyles from './useStyles';
 
@@ -54,6 +54,14 @@ const TaskFields = ({ errors, mode, onChange, task }) => {
           helperText={errors.author}
         />
       )}
+      <UserSelect
+        label="Assignee"
+        value={TaskPresenter.assignee(task)}
+        onChange={handleChangeSelect('assignee')}
+        isRequired
+        error={has('assignee', errors)}
+        helperText={errors.assignee}
+      />
     </form>
   );
 };

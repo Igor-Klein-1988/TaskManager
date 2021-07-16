@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 import AsyncSelect from 'react-select/async';
 import FormControl from '@material-ui/core/FormControl';
 import FormHelperText from '@material-ui/core/FormHelperText';
-
 import InputLabel from '@material-ui/core/InputLabel';
+
+import UserPresenter from 'presenters/UserPresenter';
 
 import UsersRepository from 'repositories/UsersRepository';
 
@@ -22,11 +23,6 @@ const UserSelect = ({ error, label, isClearable, isDisabled, isRequired, onChang
       ({ data }) => data.users,
     );
 
-  // TasksRepository.index({
-  //   q: { stateEq: state },
-  //   page,
-  //   perPage,
-  // });
   return (
     <>
       <FormControl margin="dense" disabled={isDisabled} focused={isFocused} error={error} required={isRequired}>
@@ -36,7 +32,7 @@ const UserSelect = ({ error, label, isClearable, isDisabled, isRequired, onChang
             cacheOptions
             loadOptions={handleLoadOptions}
             defaultOptions
-            getOptionLabel={(user) => `${user.firstName} ${user.lastName}`}
+            getOptionLabel={(user) => UserPresenter.fullName(user)}
             getOptionValue={(user) => user.id}
             isDisabled={isDisabled}
             isClearable={isClearable}
