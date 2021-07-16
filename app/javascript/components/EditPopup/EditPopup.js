@@ -14,6 +14,8 @@ import Modal from '@material-ui/core/Modal';
 
 import TaskFields from '../TaskFields';
 
+import TaskPresenter from 'presenters/TaskPresenter';
+
 import useStyles from './useStyles';
 
 const EditPopup = ({ cardId, onClose, onCardDestroy, onLoadCard, onCardUpdate, mode }) => {
@@ -59,7 +61,7 @@ const EditPopup = ({ cardId, onClose, onCardDestroy, onLoadCard, onCardUpdate, m
               <CloseIcon />
             </IconButton>
           }
-          title={isLoading ? 'Your task is loading. Please be patient.' : `Task # ${task.id} [${task.name}]`}
+          title={isLoading ? 'Your task is loading. Please be patient.' : TaskPresenter.title(task)}
         />
         <CardContent>
           {isLoading ? (
