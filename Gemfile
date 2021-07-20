@@ -13,6 +13,7 @@ gem 'puma', '~> 5.0'
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 5.0'
+gem 'webpacker-react', '~> 0.3.2'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
@@ -24,11 +25,27 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
+gem 'active_model_serializers'
+gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'enumerize'
+gem 'js-routes'
+gem 'kaminari'
+gem 'ransack', github: 'activerecord-hackery/ransack'
+gem 'responders'
+gem 'simple_form'
+gem 'slim-rails'
+gem 'state_machines'
+gem 'state_machines-activerecord'
+
+gem 'simplecov', require: false, group: :test
+gem 'coveralls', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'factory_bot_rails'
+  gem 'rubocop'
 end
 
 group :development do
