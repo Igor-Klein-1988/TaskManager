@@ -1,8 +1,9 @@
 # frozen_string_literal: true
+
 require 'coveralls'
 require 'simplecov'
 
-SimpleCov.start 'rails' do
+SimpleCov.start('rails') do
   formatter SimpleCov::Formatter::SimpleFormatter
 end
 Coveralls.wear!
