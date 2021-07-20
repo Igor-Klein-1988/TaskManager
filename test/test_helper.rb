@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require 'coveralls'
-require 'simplecov'
-
-SimpleCov.start('rails') do
-  formatter SimpleCov::Formatter::SimpleFormatter
+if ENV['CI'] == true
+  require 'coveralls'
+  Coveralls.wear!
+else
+  require 'simplecov'
+  SimpleCov.start
 end
-Coveralls.wear!
 
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
