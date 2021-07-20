@@ -8,8 +8,10 @@ services:
     depends_on:
       - db
     environment:
+      - CI
       - COVERAGE
       - RAILS_ENV
+      - COVERALLS_REPO_TOKEN
       - DATABASE_HOST=db
       - DATABASE_USERNAME=postgres
     command: sh -c "bundle exec rails webpacker:install && bundle exec rails db:create db:migrate && bundle exec rake test"

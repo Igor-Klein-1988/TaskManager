@@ -38,6 +38,9 @@ gem 'slim-rails'
 gem 'state_machines'
 gem 'state_machines-activerecord'
 
+gem 'simplecov', require: false, group: :test
+gem 'coveralls', require: false
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
