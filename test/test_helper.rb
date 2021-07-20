@@ -1,16 +1,18 @@
 # frozen_string_literal: true
 
-if ENV['CI'] == true
-  require 'coveralls'
-  Coveralls.wear!
-else
-  require 'simplecov'
-  SimpleCov.start
-end
-
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 require 'rails/test_help'
+require 'simplecov'
+require 'coveralls'
+
+SimpleCov.start 'rails' do
+  if ENV['CI']
+    formatter Coveralls::SimpleCov::Formatter
+  end
+end
+
+Rails.application.eager_load!
 
 class ActiveSupport::TestCase
   # Run tests in parallel with specified workers
