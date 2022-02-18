@@ -31,15 +31,14 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'enumerize'
 gem 'js-routes'
 gem 'kaminari'
+gem 'newrelic_rpm'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'responders'
+gem 'rollbar'
 gem 'simple_form'
 gem 'slim-rails'
 gem 'state_machines'
 gem 'state_machines-activerecord'
-
-gem 'simplecov', require: false, group: :test
-gem 'coveralls', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -55,6 +54,7 @@ group :development do
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
+  gem 'bullet'
 end
 
 group :test do
@@ -63,6 +63,8 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'simplecov', '~> 0.18.0'
+  gem 'coveralls_reborn', '~> 0.22.0', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
