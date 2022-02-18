@@ -16,5 +16,17 @@ admin.save
   u.first_name = "FN#{i}"
   u.last_name = "LN#{i}"
   u.password = "#{i}"
+
   u.save
+end
+
+30.times do |i|
+  task = Task.new
+  task.name = "Task №#{i}"
+  task.author = (Admin.all + Manager.all).sample
+  task.assignee = (Manager.all + Developer.all).sample
+  task.state = Task::STATES.sample
+  task.description = "Task №#{i}, state: #{task.state}, author Id: #{task.author.id}, assignee Id: #{task.assignee.id}."
+  
+  task.save
 end

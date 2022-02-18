@@ -6,7 +6,7 @@ require 'rails/test_help'
 require 'simplecov'
 require 'coveralls'
 
-SimpleCov.start 'rails' do
+SimpleCov.start('rails') do
   if ENV['CI']
     formatter Coveralls::SimpleCov::Formatter
   end
