@@ -31,6 +31,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'enumerize'
 gem 'js-routes'
 gem 'kaminari'
+gem 'newrelic_rpm'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'responders'
 gem 'rollbar'
