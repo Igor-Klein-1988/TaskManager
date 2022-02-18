@@ -1,6 +1,6 @@
 class Api::V1::TasksController < Api::V1::ApplicationController
   def index
-    q = Task.all.ransack(ransack_params)
+    q = Task.includes([:author, :assignee]).all.ransack(ransack_params)
     q.sorts = RANSACK_DEFAULT_SORT
     tasks = q.
       result.
