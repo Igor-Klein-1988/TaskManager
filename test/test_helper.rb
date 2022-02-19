@@ -15,6 +15,10 @@ end
 Rails.application.eager_load!
 
 class ActiveSupport::TestCase
+  include ActionMailer::TestHelper
+  include AuthHelper
+  include FactoryBot::Syntax::Methods
+
   # Run tests in parallel with specified workers
   parallelize(workers: :number_of_processors)
 
@@ -22,6 +26,4 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
-  include AuthHelper
-  include FactoryBot::Syntax::Methods
 end
