@@ -17,6 +17,7 @@ export default new PropTypesPresenter(
     name: PropTypes.string,
     description: PropTypes.string,
     author: PropTypes.shape(),
+    transitions: PropTypes.array,
     assignee: PropTypes.shape(),
     state: PropTypes.string,
   },

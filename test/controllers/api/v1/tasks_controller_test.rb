@@ -35,22 +35,16 @@ class Api::V1::TasksControllerTest < ActionController::TestCase
   end
 
   test 'should put update' do
-    author = create(:manager)
-    assignee = create(:developer)
-    task = create(:task, author: author)
-    name = 'New Name'
-    task_attributes = attributes_for(:task).
-      merge({ author_id: author.id, assignee_id: assignee.id, name: name }).
-      stringify_keys
+    task = create(:task)
+    new_name = 'New Name'
 
     assert_emails 1 do
-      patch :update, params: { id: task.id, format: :json, task: task_attributes }
+      put :update, params: { id: task.id, task: { name: new_name }, format: :json }
     end
     assert_response :success
 
     task.reload
-    assert_equal task.name, name
-    assert_equal task.assignee_id, assignee.id
+    assert_equal task.name, new_name
   end
 
   test 'should delete destroy' do

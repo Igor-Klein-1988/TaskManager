@@ -18,7 +18,7 @@ Rails.application.configure do
 
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
   # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
-  # config.require_master_key = true
+  config.require_master_key = true
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
@@ -120,12 +120,31 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    user_name: ENV['MAILER_USERNAME'],
-    password: ENV['MAILER_PASSWORD'],
-    address: ENV['MAILER_ADDRESS'],
-    port: ENV['MAILER_PORT'],
-    domain: ENV['MAILER_DOMAIN'],
-    authentication: ENV['MAILER_AUTHENTICATION'],
+    user_name: 'taskm2022@gmail.com',
+    password: 'zjyihthqgmnmjlzc',
+    address: 'smtp.gmail.com',
+    port: 587,
+    authentication: 'plain',
     enable_starttls_auto: true,
   }
+
+  # config.action_mailer.smtp_settings = {
+  # address:              'smtp.gmail.com',
+  # port:                 587,
+  # domain:               'example.com',
+  # user_name:            '<username>',
+  # password:             '<password>',
+  # authentication:       'plain',
+  # enable_starttls_auto: true }
+
+  # 
+  # config.action_mailer.smtp_settings = {
+  #   user_name: ENV['MAILER_USERNAME'],
+  #   password: ENV['MAILER_PASSWORD'], oxsbblghvqoawyzu
+  #   address: ENV['MAILER_ADDRESS'],
+  #   port: ENV['MAILER_PORT'],
+  #   domain: ENV['MAILER_DOMAIN'],
+  #   authentication: ENV['MAILER_AUTHENTICATION'],
+  #   enable_starttls_auto: true,
+  # }
 end
