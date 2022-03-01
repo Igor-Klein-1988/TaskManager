@@ -70,8 +70,8 @@ const TaskBoard = () => {
     if (!isEmpty(transition)) {
       return TasksRepository.update(TaskPresenter.id(task), { stateEvent: transition.event })
         .then(() => {
-          loadColumn(taskLoadParams(destination.toColumnId));
           loadColumn(taskLoadParams(source.fromColumnId));
+          loadColumn(taskLoadParams(destination.toColumnId));
         })
         .catch((error) => {
           alert(`Move failed! ${error.message}`);
